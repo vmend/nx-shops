@@ -9,4 +9,8 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello, world test!"
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm nx build cart
